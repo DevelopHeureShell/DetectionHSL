@@ -1,14 +1,18 @@
 <#
-Bienvenue sur ce script, il a pour but de détecter pas mal d'infos sur votre ordinateur. Il est composé de plusieur 
+Bienvenue sur ce script, il a pour but de détecter pas mal d'infos sur votre ordinateur. Il est composé de plusieurs
 parties qui sont expliquées dans le readme. 
-/!\noubliez pas de lire le readme avant de lancer le script/!\
-Le scipt est pret a l'emploi mais il est conseillé de lire le readme pour adapter certains paramètres.
+/!\n'oubliez pas de lire le readme avant de lancer le script/!\
+Le script est prêt à l'emploi mais il est conseillé de lire le readme pour adapter certains paramètres.
 Vous pouvez utiliser une seule étape dans le dossier du script.
 --------------------------------------------------------------------------------------------------------------------------------
 Contact:
-Github(report de bugs):https://github.com/Woomy4680-exe/Script-d-tection-hardware-software
-
-
+Github(report bugs):https://github.com/Woomy4680-exe/Script-d-tection-hardware-software
+Discord:Woomy4680_exe#6538
+Discord du scipt:Soon
+Telegram:https://t.me/woomy4680_exe
+Telegram du scipt:https://t.me/gitwoomy
+Reddit:Woomy4680_exe
+Mail:woomy4680@gmail.com
 
 
 
