@@ -1,4 +1,19 @@
 <#
+Bienvenue sur ce script, il a pour but de détecter pas mal d'infos sur votre ordinateur. Il est composé de plusieur 
+parties qui sont expliquées dans le readme. 
+/!\noubliez pas de lire le readme avant de lancer le script/!\
+Le scipt est pret a l'emploi mais il est conseillé de lire le readme pour adapter certains paramètres.
+Vous pouvez utiliser une seule étape dans le dossier du script.
+--------------------------------------------------------------------------------------------------------------------------------
+Contact:
+Github(report de bugs):https://github.com/Woomy4680-exe/Script-d-tection-hardware-software
+
+
+
+
+
+#>
+<#
 préparation des fichiers, dossiers et variables
 #>
 $path = "D:/detectionlog"
@@ -36,11 +51,4 @@ SFC /verifyonly | Tee-Object -filepath sfc.txt
 echo sfc terminé
 dism /online /cleanup-image /scanhealth >scanhealth.txt #utilise l'utilitaire dism pour vérifier certains fichiers système
 dism /online /cleanup-image /checkhealth >checkhealth.txt #autre vérification dism
-
-
-
-<#
-Partie 3: Mises à jour de certains programmes (optionel)
-#>
-Update-help #Met à jour l'aide Powershell
 
