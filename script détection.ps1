@@ -23,7 +23,7 @@ préparation des fichiers, dossiers et variables
 $path = "D:/detectionlog"
 cd D:/
 remove-item -recurse $path 
-$scriptlocation = "D:\Bureau"
+$Bureau = "D:\Bureau"
 mkdir detectionlog 
 cd $path
 mkdir partie1
@@ -41,10 +41,13 @@ get-process > process.txt #liste les processus en arrière plan
 ping $toping > ping.txt #teste le réseau (et le dnsssss)
 Get-AppBackgroundTask > appbackground.txt #liste les application en arrière plan
 get-windowsupdatelog #crée un fichier journal de windows update
-cd $scriptlocation #se déplace dans l'endroit ou se trouve le scipt
+cd $Bureau #se déplace sur le Bureau
 move windowsupdate.log "D:/detectionlog/partie1" #déplace le journal de Windows update dans le dossier du scipt 
 Get-ComputerInfo > infopc.txt #Récupère beaucoup d'infos sur l'ordinateur
 Get-volume > volumeinfo.txt #informations sur les diques (volumes)
+move volumeinfo.txt "$path/partie1"
+move infopc.txt "$path/partie"
+
 <#
 Partie 2:Vérification du système
 #>
@@ -56,3 +59,4 @@ echo sfc terminé
 dism /online /cleanup-image /scanhealth >scanhealth.txt #utilise l'utilitaire dism pour vérifier certains fichiers système
 dism /online /cleanup-image /checkhealth >checkhealth.txt #autre vérification dism
 
+move scanhealth.txt 
