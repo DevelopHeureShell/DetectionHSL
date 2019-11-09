@@ -1,0 +1,1 @@
+Bienvenue sur ce script, il a pour but de fournir un maximum d'informations utiles au dépannage de votre pc
