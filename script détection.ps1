@@ -8,14 +8,11 @@ Vous pouvez utiliser une seule étape dans le dossier du script.
 Contact:
 Github(report bugs):https://github.com/Woomy4680-exe/Script-d-tection-hardware-software
 Discord:Woomy4680_exe#6538
-Discord du scipt:Soon
+Discord du scipt:https://discord.gg/V57eUPX
 Telegram:https://t.me/woomy4680_exe
 Telegram du scipt:https://t.me/gitwoomy
 Reddit:Woomy4680_exe
 Mail:woomy4680@gmail.com
-
-
-
 #>
 <#
 préparation des fichiers, dossiers et variables
@@ -41,22 +38,24 @@ get-process > process.txt #liste les processus en arrière plan
 ping $toping > ping.txt #teste le réseau (et le dnsssss)
 Get-AppBackgroundTask > appbackground.txt #liste les application en arrière plan
 get-windowsupdatelog #crée un fichier journal de windows update
-cd $Bureau #se déplace sur le Bureau
+cd %userprofile% #se déplace sur le Bureau
 move windowsupdate.log "D:/detectionlog/partie1" #déplace le journal de Windows update dans le dossier du scipt 
 Get-ComputerInfo > infopc.txt #Récupère beaucoup d'infos sur l'ordinateur
 Get-volume > volumeinfo.txt #informations sur les diques (volumes)
 move volumeinfo.txt "$path/partie1"
 move infopc.txt "$path/partie"
 
+
 <#
 Partie 2:Vérification du système
 #>
 $prev = [console]::OutputEncoding
 [console]::OutputEncoding = [Text.Encoding]::Unicode
-SFC /verifyonly | Tee-Object -filepath sfc.txt
+SFC /verifyonly | Tee-Object -filepath "D:/detectionlog/partie1/sfc.txt"
 [console]::OutputEncoding = $prev #utilise l'utilitaire sfc pour regarder l'état des fichiers système (aucune réparation) 
-echo sfc terminé
+echo sfc fini
 dism /online /cleanup-image /scanhealth >scanhealth.txt #utilise l'utilitaire dism pour vérifier certains fichiers système
 dism /online /cleanup-image /checkhealth >checkhealth.txt #autre vérification dism
 
 move scanhealth.txt 
+mobe checkhealth.txt
