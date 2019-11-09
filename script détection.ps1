@@ -34,9 +34,6 @@ Get-AppBackgroundTask > appbackground.txt #liste les application en arrière pla
 get-windowsupdatelog #crée un fichier journal de windows update
 Get-ComputerInfo > infopc.txt #Récupère beaucoup d'infos sur l'ordinateur
 Get-volume > volumeinfo.txt #informations sur les diques (volumes)
-move volumeinfo.txt 
-move infopc.txt 
-
 <#
 Partie 2:Vérification du système
 #>
