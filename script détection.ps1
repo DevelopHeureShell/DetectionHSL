@@ -53,7 +53,7 @@ $prev = [console]::OutputEncoding
 [console]::OutputEncoding = [Text.Encoding]::Unicode
 SFC /verifyonly | Tee-Object -filepath "D:/detectionlog/partie1/sfc.txt"
 [console]::OutputEncoding = $prev #utilise l'utilitaire sfc pour regarder l'état des fichiers système (aucune réparation) 
-echo sfc fini
+echo 'sfc fini'
 dism /online /cleanup-image /scanhealth >scanhealth.txt #utilise l'utilitaire dism pour vérifier certains fichiers système
 dism /online /cleanup-image /checkhealth >checkhealth.txt #autre vérification dism
 
