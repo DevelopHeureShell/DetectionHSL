@@ -1,7 +1,9 @@
 <#
 préparation des fichiers, dossiers et variables
 #>
-mkdir detectionlog 
+cd "c:/"
+mkdir detectionlog
+cd ./detectionlog 
 mkdir partie1
 mkdir partie2
 mkdir partie2\sfc
@@ -29,6 +31,7 @@ SFC /verifyonly | Tee-Object -filepath partie2\sfc.txt
 echo sfc fini
 dism /online /cleanup-image /scanhealth > partie2\scanhealth.txt #utilise l'utilitaire dism pour vérifier certains fichiers système
 dism /online /cleanup-image /checkhealth > partie2\checkhealth.txt #autre vérification dism
+chkdsk > partie2/disquecheck.txt
 
 <#
 Partie 3: Mises à jour de certains programmes (optionel)
