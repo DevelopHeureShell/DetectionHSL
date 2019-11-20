@@ -35,3 +35,8 @@ dism /online /cleanup-image /checkhealth > partie2\checkhealth.txt #autre vérif
 Partie 3: Mises à jour de certains programmes (optionel)
 #>
 Update-help #Met à jour l'aide Powershell
+
+
+<# 
+Partie 4: Tests sur le réseau
+#>
