@@ -38,5 +38,9 @@ Update-help #Met à jour l'aide Powershell
 
 
 <# 
-Partie 4: Tests sur le réseau
+Partie 4: Benchmarks
 #>
+winsat formal > partie4\winsat.txt
+cd $PSScriptRoot
+cd ./outils 
+speedtest > C:/Detectionlog/partie4/speedtest.txt
