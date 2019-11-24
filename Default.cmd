@@ -1,1 +1,1 @@
-@powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0script_detection.ps1" 
+@powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0DetectionHSL.ps1" 
