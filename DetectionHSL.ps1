@@ -1,9 +1,9 @@
 <#
 Partie 0 : Préparation des fichiers et dossiers.
 #>
-cd C:\
+cd $PSScriptRoot
 mkdir DetectionHSL
-cd C:\DetectionHSL
+cd ./DetectionHSL
 mkdir Partie1 
 mkdir Partie2 
 mkdir Partie3
@@ -44,7 +44,7 @@ Patie 4: Test de performances.
 Winsat formal | Tee-Object -filepath partie4\winsat.txt
 cd $PSScriptRoot
 cd ./outils 
-speedtest  | Tee-Object -filepath C:\DetectionHSL\partie4\speedtest.txt
+speedtest  | Tee-Object -filepath '$PSScriptRoot\DetectionHSL\partie4\speedtest.txt'
 echo 'script terminé sans erreurs vous pouvez maintenant envoyer le zip pour le dépannage'
 timeout /t 180
 exit
