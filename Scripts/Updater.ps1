@@ -4,5 +4,5 @@ refreshenv
 choco install git -y
 cd $psscriptroot
 refreshenv
-.\updater1.ps1
+.\Updater1.ps1
 pause
