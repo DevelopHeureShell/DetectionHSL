@@ -1,9 +1,9 @@
 <#
 Partie 0 : Préparation des fichiers et dossiers.
 #>
-cd $PSScriptRoot
+Set-location $PSScriptRoot
 mkdir DetectionHSL
-cd .\DetectionHSL
+Set-location ./DetectionHSL
 mkdir Partie1 
 mkdir Partie2 
 mkdir Partie3
@@ -15,16 +15,16 @@ Partie 1: obtention des logs et des process ouverts
 
 
 Get-Windowsupdatelog -LogPath partie1\Windowsupdate.log
-Get-Process > Partie1\process.txt
-Get-AppBackgroundTask > partie1\appbackground.txt 
-Get-WmiObject -Class Win32_Product > partie1\applications.txt
-Get-AppPackage > partie1\applicationstore.txt
-echo partie 1 terminée
+Get-Process > Partie1\Process.txt
+Get-AppBackgroundTask > partie1\Appbackground.txt 
+Get-WmiObject -Class Win32_Product > partie1\Applications.txt
+Get-AppPackage > partie1\Applicationstore.txt
+Write-Output 'partie 1 terminée'
 <#
 Partie 2: Obtention des autres infos du pc
 #>
-Get-volume > partie2\volumeinfo.txt
-Get-ComputerInfo > partie2\infopc.txt 
+Get-volume | Tee-Object -filepath partie2\Partitons.txt
+Get-ComputerInfo | Tee-Object -filepath partie2\Infopc.txt 
 <#
 Partie 3: Vérification de l'état du système.
 #>
@@ -33,15 +33,16 @@ $prev = [console]::OutputEncoding
 SFC /verifyonly | Tee-Object -filepath partie3\sfc.txt
 [console]::OutputEncoding = $prev
 
-Dism /online /cleanup-image /scanhealth  | Tee-Object -filepath partie3\scanhealth.txt
-Dism /online /cleanup-image /checkhealth | Tee-Object -filepath partie3\checkhealth.txt
+Dism /online /cleanup-image /scanhealth  | Tee-Object -filepath partie3\Scanhealth.txt
+Dism /online /cleanup-image /checkhealth | Tee-Object -filepath partie3\Checkhealth.txt
 chkdsk > partie3\chkdsk.txt
 Update-help
-echo 'Si la commande précédente a donné des erreurs rien de grave.'
+Write-Output 'Si la commande a retourné des erreurs rien de grave.'
 <#
 Patie 4: Test de performances.
 #>
-Winsat formal | Tee-Object -filepath partie4\winsat.txt
-echo 'script terminé sans erreurs vous pouvez maintenant envoyer le zip pour le dépannage'
+Winsat formal | Tee-Object -filepath partie4\Winsat.txt
+Set-location $PSScriptRoot
+Write-Output 'script terminé sans erreurs. Vous pouvez maintenant envoyer le zip pour le dépannage'
 timeout /t 180
 exit
