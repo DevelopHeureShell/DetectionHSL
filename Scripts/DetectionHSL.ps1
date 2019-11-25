@@ -20,6 +20,7 @@ Get-Process > Partie1\Process.txt
 Get-AppBackgroundTask > partie1\Appbackground.txt 
 Get-WmiObject -Class Win32_Product > partie1\Applications.txt
 Get-AppPackage > partie1\Applicationstore.txt
+Get-EventLog -logname system | Tee-Object -filepath partie1\EventLog.txt
 Write-Output 'partie 1 terminée'
 <#
 Partie 2: Obtention des autres infos du pc
