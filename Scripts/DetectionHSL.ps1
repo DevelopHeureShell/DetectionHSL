@@ -1,9 +1,10 @@
 <#
 Partie 0 : Préparation des fichiers et dossiers.
 #>
-Set-location $PSScriptRoot
+cd $PSScriptRoot
+pause
 mkdir DetectionHSL
-Set-location ./DetectionHSL
+cd ./DetectionHSL
 mkdir Partie1 
 mkdir Partie2 
 mkdir Partie3
@@ -43,9 +44,6 @@ Partie 4: Mises a jour de windows.
 #>
 Update-help
 Write-Output 'Si la commande a retourné des erreurs rien de grave.'
-install-Module -Name PSWindowsUpdate 
-import-module PSWindowsUpdate
-Get-WUInstall -AcceptAll –IgnoreReboot
 
 
 <#
