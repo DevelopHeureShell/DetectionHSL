@@ -2,7 +2,6 @@
 Partie 0 : Préparation des fichiers et dossiers.
 #>
 cd $PSScriptRoot
-pause
 mkdir DetectionHSL
 cd ./DetectionHSL
 mkdir Partie1 
