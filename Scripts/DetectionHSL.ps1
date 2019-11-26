@@ -39,11 +39,10 @@ Dism /online /cleanup-image /scanhealth  | Tee-Object -filepath partie3\Scanheal
 Dism /online /cleanup-image /checkhealth | Tee-Object -filepath partie3\Checkhealth.txt
 chkdsk > partie3\chkdsk.txt
 <#
-Partie 4: Mises a jour de windows.
+Partie 4: Mises à jour.
 #>
 Update-help
 Write-Output 'Si la commande a retourné des erreurs rien de grave.'
-
 
 <#
 Patie 5: Test de performances.
