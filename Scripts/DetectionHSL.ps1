@@ -2,8 +2,12 @@
 Partie 0 : Préparation des fichiers et dossiers.
 #>
 cd $PSScriptRoot
-mkdir DetectionHSL
-cd ./DetectionHSL
+cd ..
+
+mkdir Résultats
+cd ./Résultats
+$path = pwd 
+echo $path
 mkdir Partie1 
 mkdir Partie2 
 mkdir Partie3

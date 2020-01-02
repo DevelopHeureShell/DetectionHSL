@@ -6,3 +6,4 @@ net start wuauserv
 timeout /t 12
 Dism /online /cleanup-image /restorehealth
 #chkdsk /f
+start-sleep

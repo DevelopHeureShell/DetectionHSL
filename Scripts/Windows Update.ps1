@@ -1,4 +1,4 @@
-install-Module -Name PSWindowsUpdate 
-import-module PSWindowsUpdate
+Install-Module -Name PSWindowsUpdate 
+Import-module PSWindowsUpdate
 Get-WUInstall -AcceptAll 
 pause
