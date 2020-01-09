@@ -2,10 +2,11 @@
 Partie 0 : Préparation des fichiers et dossiers.
 #>
 cd $PSScriptRoot
+Import-module ./Core.psm1
 cd ..
 
-mkdir Résultats
-cd ./Résultats
+mkdir Resultats
+cd ./Resultats
 $path = pwd 
 echo $path
 mkdir Partie1 
@@ -17,15 +18,21 @@ mkdir partie5
 <#
 Partie 1: obtention des logs et des process ouverts
 #>
-
-
+$basepath = pwd
+cd ..
+cd Scripts
+cd Additional_exe
+début_partie_1.exe
+cd $basepath
+get-wutilsload 
+start-sleep 10
 Get-Windowsupdatelog -LogPath partie1\Windowsupdate.log
 Get-Process > Partie1\Process.txt
 Get-AppBackgroundTask > partie1\Appbackground.txt 
 Get-WmiObject -Class Win32_Product > partie1\Applications.txt
 Get-AppPackage > partie1\Applicationstore.txt
 Get-EventLog -logname system | Tee-Object -filepath partie1\EventLog.txt
-Write-Output 'partie 1 terminée'
+
 <#
 Partie 2: Obtention des autres infos du pc
 #>
@@ -46,7 +53,7 @@ chkdsk > partie3\chkdsk.txt
 Partie 4: Mises à jour.
 #>
 Update-help
-Write-Output 'Si la commande a retourné des erreurs rien de grave.'
+Write-Output 'Si la commande a retourne des erreurs rien de grave.'
 
 <#
 Patie 5: Test de performances.
