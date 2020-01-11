@@ -148,3 +148,9 @@ exit
 function get-wutilsload {
     write-output "Woomy Utils core loaded."
 }
+function Get-banned {
+    write-output "Vous etes tous bannis !"
+}
+function Install-GoodSofts {
+    choco install chocolateygui powershell-preview powershell-core wsl powertoys grep vim -y
+}
