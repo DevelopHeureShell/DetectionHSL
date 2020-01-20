@@ -1,1 +1,0 @@
-@powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0.\Scripts\Updater.ps1" 

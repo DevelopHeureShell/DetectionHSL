@@ -87,21 +87,34 @@ cd scripts
 Test-HSL
 if ($errorstate -eq 1){
     write-output "Il y a un fichier corrompu"
+    pause
+    exit
 }
 elseif ($errorstate -eq 2){
     write-output "Il y a un fichier corrompu"
+    pause
+    exit
+
 }
 elseif ($errorstate -eq 3){
     write-output "Il y a un fichier corrompu"
+    pause
+    exit
 }
 elseif ($errorstate -eq 4){
     write-output "Il y a un fichier corrompu"
+    pause
+    exit
 }
 elseif ($errorstate -eq 5){
     write-output "Il y a un fichier corrompu"
+     pause
+    exit
 }
 elseif ($errorstate -eq 6){
     write-output "Il y a un fichier corrompu"
+     pause
+    exit
 }
 else{
     write-output "Il n'y a pas de fichiers corrompus."
