@@ -2,25 +2,17 @@
 Partie 0 : Préparation des fichiers et dossiers.
 #>
 cd $PSScriptRoot
-.\Additional_exe\prepdir.exe
-Import-module ./Core.psm1
 cd ..
-remove-item -recurse ./Resultats
-mkdir Resultats
 cd ./Resultats
 $path = pwd 
 
 cd $path 
-mkdir Partie1 
-mkdir Partie2 
-mkdir Partie3
-mkdir Partie4
-mkdir partie5
+
 
 <#
 Partie 1: obtention des logs et des process ouverts
 #>
-get-wutilsload
+
 cd $PSScriptRoot
 .\Additional_exe\a.exe
 cd $path

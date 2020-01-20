@@ -1,6 +1,7 @@
 @echo off 
 ::partie1
 "%~dp0Scripts\Additional_exe\debscript.exe"
+@powershell.exe -noprofile -executionpolicy bypass -file "%~dp0./Scripts/prep.ps1" -include "%~dp0./Scripts/Core.psm1"
 "%~dp0Scripts\Additional_exe\deb1.exe"
 @powershell.exe -noprofile -executionpolicy bypass -file "%~dp0./Scripts/partie1.ps1" -include "%~dp0./Scripts/Core.psm1" 
 ::partie2
