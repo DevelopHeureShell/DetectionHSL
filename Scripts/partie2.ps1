@@ -56,9 +56,10 @@ $smbiosversion  = $smbiosmajorversion + '.' + $smbiosminorversion
 Write-Output $smbiosversion >> Computerinfo.txt
 write-output "La marque du PC:" >> Computerinfo.txt
 Write-Output $computerinfo.CsManufacturer >> Computerinfo.txt
-Write-Output "Les cartes reseau" >> Computerinfo.txt
-Write-Output $computerinfo.CsNetworkAdapters >> Computerinfo.txt
-write-output "Le processeur" >> Computerinfo.txt
+Write-Output "Les infos reseau: " >> computerinfo.txt 
+$list = $computerinfo.CsNetworkAdapters | Format-List -Property Description, ConnectionID, DHCPEnabled, ConnectionStatus
+$list >> computerinfo.txt 
+#Pas de IPLEAK
 Write-Output $computerinfo.CsProcessors >> Computerinfo.txt
 Write-Output "Les coeurs logiques du processeur" >> Computerinfo.txt
 Write-Output $computerinfo.CsNumberOfLogicalProcessors >> Computerinfo.txt
