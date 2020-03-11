@@ -26,3 +26,4 @@ Les choses a savoir:
 Merci à :
 - Alexbzh35480#4395
 - Émie#9936
+- Rheydskey#4820
