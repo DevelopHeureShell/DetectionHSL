@@ -1,0 +1,4 @@
+*.pdb
+hsllog.log
+main/modulelaunch/target/
+DetectionHSL.zip

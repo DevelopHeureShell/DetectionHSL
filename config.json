@@ -1,0 +1,4 @@
+{ 
+    "version": "2.0.0",
+    "modules": ["sysverify", "process", "logger", "computerinfo", "autorepair", "zipper"]
+}

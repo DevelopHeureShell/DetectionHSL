@@ -1,0 +1,1 @@
+Ce module a pour but de récupérer les journaux de votre ordinateur.
