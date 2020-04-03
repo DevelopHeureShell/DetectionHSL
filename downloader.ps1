@@ -15,3 +15,4 @@ Expand-Archive updated.zip
 Set-Location updated 
 Set-Location DetectionHSL-${newver}
 Copy-item -recurse .\* $PSScriptRoot
+Set-Location $PSScriptRoot
