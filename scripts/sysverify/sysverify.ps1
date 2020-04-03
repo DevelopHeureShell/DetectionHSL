@@ -12,7 +12,7 @@ function Write-Hslcat {
     if ($file -eq "") { break }
     & $maindir\cat.exe $PSScriptRoot\$file
 
-}
+} 
 Write-Hslcat("sfstart.txt")
 Set-Location $env:TEMP
 Set-Location detectionhsl

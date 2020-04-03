@@ -12,7 +12,7 @@ function Write-Hslcat {
     if ($file -eq "") { break }
     & $maindir\cat.exe $PSScriptRoot\$file
 
-}
+} 
 Write-Hslcat("info.txt")
 Set-Location $env:TEMP\detectionhsl\process
 Get-Process | Format-List -Property ProcessName >> process.txt 

@@ -12,7 +12,7 @@ function Write-Hslcat {
     if ($file -eq "") { break }
     & $maindir\cat.exe $PSScriptRoot\$file
 
-}
+} 
 Set-Location $env:TEMP\detectionhsl\computerinfo\
 $computerinfo = Get-ComputerInfo
 #On prends les objets, pour les renvoyer dans Computerinfo.txt
