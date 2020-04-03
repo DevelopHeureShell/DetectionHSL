@@ -71,8 +71,10 @@ write-output "//  //          ///     //"
 write-output "//  //    //////         //////"
 write-output ""
 Write-hslcat("listing.txt")
-foreach($mod in $modules){
-    $mod
+$parcour = 0
+while ($parcour -lt $modules.Length) {
+    $modules[$parcour]
+    $parcour = $parcour + 1       
 }
 <#
 On crée les dossiers comme $env:temp\DetectionHSL 
@@ -92,8 +94,11 @@ Set-Location $hsldir
 Petite boucle qui se charge de créer les dossiers modules.
 #>
 Write-Hslcat("directory.txt")
-foreach($mod in $modules){
-    New-Item -ItemType Directory -Name $mod | Out-Null
+Remove-Variable -Name parcour
+$parcour = 0
+while ($parcour -lt $modules.Length) {
+    New-Item -ItemType Directory -Name $modules[$parcour] | Out-Null
+    $parcour = $parcour + 1
 }
 Set-Location $modulesdir 
 Set-Location .. 
@@ -102,16 +107,24 @@ Ready to LOG!
 On va récup le STDOUT pour le début du LOG
 #> 
 if (Test-Path .\hsllog.log) { Remove-Item .\hsllog.log }
+Remove-Variable -Name parcour 
+$parcour = 0
 $logpath = Get-Location
-foreach($mod in $modules){
-    $mod >> hsllog.log 
+while ($parcour -lt $modules.Length) {
+    $modules[$parcour] >> hsllog.log
+    $parcour = $parcour + 1       
 }
 #Lancement des modules
-foreach($mod in $modules){
-    $hslmod = Get-Content $modulesdir\$mod\module.json | ConvertFrom-Json
-    & $maindir\modulelaunch.exe $hslmod.name $hslmod.author $hslmod.version
-    Start-HSLmod($mod)  
+Remove-Variable -Name parcour
+$parcour = 0
+while ($parcour -lt $modules.Length) {
+    $mdname = $modules[$parcour]
+    $mod = Get-Content $modulesdir\$mdname\module.json | ConvertFrom-Json
+    & $maindir\modulelaunch.exe $mod.name $mod.author $mod.version
+    Start-HSLmod($modules[$parcour])
+    $parcour = $parcour + 1       
+   
     if (!($?)) {
-        Write-Output  "Le module ${mod} a eu une erreur" >> $logpath\hsllog.log
+        Write-Output  "Le module ${modules[$parcour]} a eu une erreur" >> $logpath\hsllog.log
     }
 }

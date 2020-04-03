@@ -14,6 +14,7 @@ if($new.version -eq $actual.version){
     exit 
 }
 else{
+    
     $newver = $new.version.tostring()
     Write-Output "Updating DetectionHSL"
     $url = "https://github.com/Woomy4680-exe/DetectionHSL/archive/${newver}.zip"
@@ -23,9 +24,16 @@ else{
     Set-Location DetectionHSL-${newver}
     $newhsl = Get-Location
     Set-Location $PSScriptRoot
-    $files = @("config.json", "hdk", "main", "documentation", "README.md", "start.bat", ".gitignore")
+    $files = @("config.json", "hdk", "main", "documentation", "README.md", "start.bat", ".gitignore", "LICENSE", "HSLlogo.png")
     foreach($file in $files ){
         Remove-item -Recurse -Force $file 
-        Copy-Item $newhsl\$file $PSScriptRoot
+        Copy-Item -Recurse -Force $newhsl\$file $PSScriptRoot
     }
+    Set-location scripts
+    $mods = Get-ChildItem $newhsl\scripts
+    foreach($mod in $mods){
+        Remove-item -Recurse $mod 
+        Copy-item -Recurse $newhsl\scripts\$mod $PSScriptRoot\scripts
+    }
+    
 }
