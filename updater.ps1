@@ -1,3 +1,4 @@
+$Host.UI.RawUI.WindowTitle = "DetectionHSL Updater"
 Set-Location $env:TEMP 
 if(Test-path .\hslupdater){
     Remove-item -recurse hslupdater
@@ -35,5 +36,6 @@ else{
         Remove-item -Recurse $mod 
         Copy-item -Recurse $newhsl\scripts\$mod $PSScriptRoot\scripts
     }
-    
+    Write-Output "Press any key to exit"
+    $Host.UI.RawUI.ReadKey() | Out-Null   
 }
