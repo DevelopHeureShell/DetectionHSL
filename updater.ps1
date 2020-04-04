@@ -25,7 +25,7 @@ else{
     Set-Location DetectionHSL-${newver}
     $newhsl = Get-Location
     Set-Location $PSScriptRoot
-    $files = @("config.json", "hdk", "main", "documentation", "README.md", "start.bat", ".gitignore", "LICENSE", "HSLlogo.png")
+    $files = @("config.json", "hdk", "main", "documentation", "README.md", "start.bat", ".gitignore", "LICENSE", "HSLlogo.png", "update.bat")
     foreach($file in $files ){
         Remove-item -Recurse -Force $file 
         Copy-Item -Recurse -Force $newhsl\$file $PSScriptRoot
