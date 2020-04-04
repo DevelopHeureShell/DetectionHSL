@@ -15,5 +15,5 @@ Invoke-WebRequest -OutFile updated.zip $url
 Expand-Archive updated.zip 
 Set-Location updated 
 Set-Location DetectionHSL-${newver}
-Copy-item -recurse .\* $PSScriptRoot
+Copy-item -recurse .\* $PSScriptRoot\DetectionHSL
 Set-Location $PSScriptRoot\DetectionHSL
