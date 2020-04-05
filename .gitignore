@@ -4,3 +4,4 @@ main/modulelaunch/target/
 DetectionHSL.zip
 main/cat-rust/target
 *.hslcache
+Shortcuts/*
