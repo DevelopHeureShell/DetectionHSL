@@ -23,3 +23,8 @@ if(Test-Path $hslroot\DetectionHSL.zip){
     Remove-item -Force $hslroot\DetectionHSL.zip
 }
 Compress-Archive  $env:temp\detectionhsl -DestinationPath $hslroot\DetectionHSL.zip
+Set-Location $hslroot
+if((Get-Location) -eq "$env:ProgramFiles\DetectionHSL"){
+    $bureau = [System.Environment]::GetFolderPath("Desktop")
+    Copy-item -Recurse .\DetectionHSL.zip $bureau
+}
