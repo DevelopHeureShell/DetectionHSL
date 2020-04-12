@@ -5,3 +5,5 @@ DetectionHSL.zip
 main/cat-rust/target
 *.hslcache
 Shortcuts/*
+gui.ps1
+loupe.ico
