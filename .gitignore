@@ -5,5 +5,7 @@ DetectionHSL.zip
 main/cat-rust/target
 *.hslcache
 Shortcuts/*
+main/hslmanager
 gui.ps1
+oldconfig.json
 loupe.ico

@@ -1,3 +1,3 @@
 {
-    "files": ["config.json", "hdk", "main", "README.md", "start.bat", ".gitignore", "LICENSE", "HSLlogo.png", "update.bat", "downloader.ps1", "updater.json", "shortchuts.bat", "setupshortcuts.ps1"]
+    "files": ["config.json", "hdk", "main", "README.md", "start.bat", ".gitignore", "LICENSE", "HSLlogo.png", "update.bat", "downloader.ps1", "updater.json", "hslmanager.ps1"]
 }
