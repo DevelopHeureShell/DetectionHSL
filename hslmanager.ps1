@@ -92,4 +92,23 @@ if($execmode -eq 'clean'){
             Remove-item -Recurse $PSScriptRoot\$file
         }
     }
+    exit
+}
+if ($execmode -eq 'help'){
+    Write-Host -ForegroundColor Green "Aide de DetectionHSL"
+    Write-Host ""
+    Write-Host "Utilisation : hslmanager [commande]"
+    Write-Host ""
+    Write-Host "Clean: Nettoyer les fichiers inutiles de DetectionHSL"
+    Write-Host "UTILISATION: hslmanager clean"
+    Write-Host ""
+    Write-Host "Disable: Desactive un module"
+    Write-Host "UTILISATION: hslmanager disable [module]"
+    Write-Host ""
+    Write-Host "Enable: Activer un module"
+    Write-Host "UTILISATION: hslmanager enable [module]"
+    Write-Host ""
+    Write-Host "Start: Lancer DetectionHSL"
+    Write-Host "UTILISATION: hslmanager start"
+    Write-Host ""
 }
