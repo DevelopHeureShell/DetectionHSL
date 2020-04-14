@@ -9,3 +9,4 @@ main/hslmanager
 gui.ps1
 oldconfig.json
 loupe.ico
+backup/*

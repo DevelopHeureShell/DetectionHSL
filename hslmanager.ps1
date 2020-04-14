@@ -1,10 +1,14 @@
+param (
+    [switch]$nogui = $false 
+)
 $hslconf = Get-Content $PSScriptRoot\config.json | ConvertFrom-Json #On load la config
+if(!($nogui)){
 $text = "DetectionHSL Manager version " + $hslconf.version
-Write-Host ''
 Write-Host ''
 Write-Host "-------------"
 Write-Host $text
 Write-Host "-------------"
+}
 if ($null -eq $args[0] -or $args[0] -eq "help" -or $args[0] -eq '?') {
     #On passe en mode HELP si y'a pas d'argss
     $execmode = "help"
@@ -25,6 +29,9 @@ elseif($args[0] -eq 'update'){
 }
 elseif($args[0] -eq 'clean'){
     $execmode = 'clean'
+}
+elseif($args[0] -eq 'backup'){
+    $execmode = 'backup'
 }
 else {
     Write-Output "Arguments invalides"
@@ -81,7 +88,8 @@ if($execmode -eq 'clean'){
     $files = @(
         "hsllog.log",
         "oldconfig.json",
-        "DetectionHSL.zip"
+        "DetectionHSL.zip",
+        "backup"
     )
     foreach($file in $files){
         if(Test-Path $PSScriptRoot\$file){
@@ -107,4 +115,27 @@ if ($execmode -eq 'help'){
     Write-Host "Start: Lancer DetectionHSL"
     Write-Host "UTILISATION: hslmanager start"
     Write-Host ""
+}
+if($execmode -eq 'backup'){
+    & $PSScriptRoot\hslmanager.ps1 clean -nogui
+    New-Item -ItemType Directory -Path $PSScriptRoot\backup | Out-Null
+    Set-Location $PSScriptRoot
+    $tobackup = @(
+        "HSLlogo.png",
+        ".gitignore",
+        "config.json",
+        "start.bat", 
+        "update.bat",
+        "updater.json",
+        "updater.ps1",
+        "gui.ps1",
+        "scripts", 
+        "main",
+        "README.md", 
+        "LICENSE",
+        "loupe.ico"
+    )
+    foreach($file in $tobackup){
+        Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\
+    }
 }
