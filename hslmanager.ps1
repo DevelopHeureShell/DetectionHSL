@@ -9,10 +9,6 @@ if ($null -eq $args[0] -or $args[0] -eq "help" -or $args[0] -eq '?') {
     #On passe en mode HELP si y'a pas d'argss
     $execmode = "help"
 }
-elseif ($args[0] -eq 'install' -or $args[0] -eq 'i') {
-    #Ici on vérifie si ça peut rentrer dans install
-    $execmode = 'install'
-}
 elseif ($args[0] -eq 'start') {
     #Ici on vérifie si ça rentre dans Start
     $execmode = 'start'
