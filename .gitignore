@@ -1,12 +1,12 @@
-*.pdb
-hsllog.log
-main/modulelaunch/target/
-DetectionHSL.zip
-main/cat-rust/target
-*.hslcache
-Shortcuts/*
-main/hslmanager
-gui.ps1
+#Logs 
+hsllog.log 
+#Trash / Backups
 oldconfig.json
-loupe.ico
-backup/*
+backup
+main/cat-rust/.github
+#unstable code 
+gui.ps1
+loupe.ico 
+#Deps build
+main/cat-rust/target 
+main/modulelaunch/target 
