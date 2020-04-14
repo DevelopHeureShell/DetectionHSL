@@ -33,6 +33,9 @@ elseif($args[0] -eq 'clean'){
 elseif($args[0] -eq 'backup'){
     $execmode = 'backup'
 }
+elseif($args[0] -eq 'check'){
+    $execmode = 'check'
+}
 else {
     Write-Output "Arguments invalides"
     $execmode = 'help'
@@ -115,6 +118,9 @@ if ($execmode -eq 'help'){
     Write-Host "Start: Lancer DetectionHSL"
     Write-Host "UTILISATION: hslmanager start"
     Write-Host ""
+    Write-Host "Check: Verifier que l'envirronement est correct"
+    Write-Host "UTILISATION: hslmanager check"
+    Write-Host ""
 }
 if($execmode -eq 'backup'){
     & $PSScriptRoot\hslmanager.ps1 clean -nogui
@@ -137,5 +143,10 @@ if($execmode -eq 'backup'){
     )
     foreach($file in $tobackup){
         Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\
+    }
+}
+if($execmode -eq 'check'){
+    If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+        Write-Host "Pas lancé en admin"
     }
 }

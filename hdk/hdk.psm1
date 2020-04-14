@@ -3,7 +3,7 @@ function Get-Goodenv {
     Write-Output "Vous DEVEZ lancer le script en admin"
     exit
   }
-  while ((Test-path ./.gitmodules ) -eq $false) {
+  while ((Test-path ./.gitignore ) -eq $false) {
     Set-Location ..
   }
   Start-Sleep 10
