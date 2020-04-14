@@ -5,8 +5,8 @@ oldconfig.json
 backup
 main/cat-rust/.github
 #unstable code 
-gui.ps1
-loupe.ico 
+#gui.ps1
+#loupe.ico 
 #Deps build
 main/cat-rust/target 
 main/modulelaunch/target 
