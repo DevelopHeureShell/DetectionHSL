@@ -27,6 +27,9 @@ elseif ($args[0] -eq 'disable') {
 elseif($args[0] -eq 'update'){
     $execmode = 'update'
 }
+elseif($args[0] -eq 'clean'){
+    $execmode = 'clean'
+}
 else {
     Write-Output "Arguments invalides"
     $execmode = 'help'
@@ -76,4 +79,17 @@ if($execmode -eq 'enable'){
 }
 if ($execmode -eq 'start'){
     & $PSScriptRoot\start.bat
+    exit
+}
+if($execmode -eq 'clean'){
+    $files = @(
+        "hsllog.log",
+        "oldconfig.json",
+        "DetectionHSL.zip"
+    )
+    foreach($file in $files){
+        if(Test-Path $PSScriptRoot\$file){
+            Remove-item -Recurse $PSScriptRoot\$file
+        }
+    }
 }
