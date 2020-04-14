@@ -19,7 +19,7 @@ elseif ($args[0] -eq 'start') {
 }
 elseif ($args[0] -eq 'enable') {
     #Ici on passe en mode Activation de modules si nécessaire
-    $execmode = 'disable'
+    $execmode = 'enable'
 }
 elseif ($args[0] -eq 'disable') {
     $execmode = 'disable'
@@ -49,5 +49,31 @@ if ($execmode -eq "disable"){
     if(Test-path $PSScriptRoot\oldconfig.json){ Remove-Item -recurse oldconfig.json}
     Rename-Item $PSScriptRoot\config.json oldconfig.json
     $hslconf | ConvertTo-Json  > $PSScriptRoot\config.json
-    
+    exit
+} #Si on est en disable il exit, un peu plus opti
+
+if($execmode -eq 'enable'){
+    if ($null -eq $args[1]) {
+        Write-Host "Il faut indiquer un module"
+        Write-Host ''
+        Write-Host ''
+        exit 1
+    }
+    $newmods = @()
+    foreach($mod in $hslconf.modules){
+        if($args[1] -eq $mod){
+            Write-Host "Module deja actif"
+            exit 1
+        }
+        $newmods += $mod
+    }
+    $newmods += $args[1]
+    $hslconf.modules = $newmods
+    if (Test-path $PSScriptRoot\oldconfig.json) { Remove-Item -recurse oldconfig.json }
+    Rename-Item $PSScriptRoot\config.json oldconfig.json
+    $hslconf | ConvertTo-Json  > $PSScriptRoot\config.json
+    exit
+}
+if ($execmode -eq 'start'){
+    & $PSScriptRoot\start.bat
 }
