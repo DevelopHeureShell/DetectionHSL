@@ -1,3 +1,6 @@
+param(
+    [switch]$accept = $false
+)
 $Host.UI.RawUI.WindowTitle = "DetectionHSL Updater"
 Set-Location $env:TEMP 
 if (Test-path .\hslupdater) {
@@ -15,7 +18,20 @@ if ($new.version -eq $actual.version) {
     exit 
 }
 else {
-    
+    if(!($accept)){
+    while(!($action -eq 'y' -or $action -eq 'n')){
+        $choice  = Read-Host 'Voulez vous mettre a jour vers la nouvelle version ? (O)ui (N)on'
+        if($choice -eq 'o'){
+            $action = 'y'
+        }
+        elseif($choice -eq 'n'){
+            $action = 'n'
+            exit
+        }
+    }
+}
+    Write-Output "foo"
+    exit
     $newver = $new.version.tostring()
     Write-Output "Updating DetectionHSL"
     $url = "https://github.com/Woomy4680-exe/DetectionHSL/archive/${newver}.zip"

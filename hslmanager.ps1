@@ -151,3 +151,6 @@ if($execmode -eq 'check'){
         exit 1
     }
 }
+if($execmode -eq 'update'){
+    & $PSScriptRoot\updater.ps1 -accept
+}
