@@ -17,15 +17,31 @@ $exp.Location = New-Object System.Drawing.Point(0, 10)
 $startbutton = New-Object System.windows.forms.button 
 $startbutton.AutoSize  = $true 
 $startbutton.Size = New-Object System.Drawing.Size(10, 20)
-$startbutton.Location = New-Object System.Drawing.Point(20, 30)
+$startbutton.Location = New-Object System.Drawing.Point(0, 30)
 $startbutton.Text =  "Lancer DetectionHSL"
 $startbutton.add_click({
     & $PSScriptRoot\hslmanager.ps1 start
 }) #On lance le script au click
+#On crée le Update Label
+$updatelabel = New-object System.Windows.forms.label
+$updatelabel.AutoSize = $true
+$updatelabel.Location = New-Object System.Drawing.Point(0, 60)
+$updatelabel.Text = "Mettre a jour DetectionHSL"
+#Le bouton de mise à jour
+$updatebutton = New-Object System.Windows.Forms.Button 
+$updatebutton.Text = "Maj"
+$updatebutton.Size = New-object System.Drawing.Size(5, 20)
+$updatebutton.Location = New-object System.Drawing.Point(0, 90)
+$updatebutton.AutoSize = $true 
+$updatebutton.Add_click({
+    & $PSScriptRoot\hslmanager.ps1 update
+})
 #On ajoute les différents élémets à la GUI 
 #Le texte
 $bg.Controls.Add($startbutton)
 $bg.Controls.Add($exp)
+$bg.Controls.add($updatelabel)
+$bg.Controls.add($updatebutton)
 #
 $bg.ShowDialog()    #On show le background
 #
