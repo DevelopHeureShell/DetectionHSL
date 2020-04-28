@@ -3,6 +3,7 @@ param (
 )
 $hslconf = Get-Content $PSScriptRoot\config.json | ConvertFrom-Json #On load la config
 if(!($nogui)){
+Clear-Host
 $text = "DetectionHSL Manager version " + $hslconf.version
 Write-Host ''
 Write-Host "-------------"
@@ -33,8 +34,8 @@ elseif($args[0] -eq 'clean'){
 elseif($args[0] -eq 'backup'){
     $execmode = 'backup'
 }
-elseif($args[0] -eq 'check'){
-    $execmode = 'check'
+elseif ($args[0] -eq 'restore'){
+    $execmode = "restore"
 }
 else {
     Write-Output "Arguments invalides"
@@ -118,13 +119,18 @@ if ($execmode -eq 'help'){
     Write-Host "Start: Lancer DetectionHSL"
     Write-Host "UTILISATION: hslmanager start"
     Write-Host ""
-    Write-Host "Check: Verifier que l'envirronement est correct"
-    Write-Host "UTILISATION: hslmanager check"
-    Write-Host ""
 }
 if($execmode -eq 'backup'){
+    if($null -eq $args[1]){return}
+    $name = $args[1]
+    if (Test-Path $PSScriptRoot\backup\$name){
+        Remove-Item -Recurse $PSScriptRoot\backup\$name
+    }
     & $PSScriptRoot\hslmanager.ps1 clean -nogui
-    New-Item -ItemType Directory -Path $PSScriptRoot\backup | Out-Null
+    if(!(Test-Path $PSScriptRoot\backup)){
+        New-Item -ItemType Directory -Path $PSScriptRoot\backup | Out-Null
+    }
+
     Set-Location $PSScriptRoot
     $tobackup = @(
         "HSLlogo.png",
@@ -141,14 +147,9 @@ if($execmode -eq 'backup'){
         "LICENSE",
         "loupe.ico"
     )
+    New-Item -ItemType Directory -Path $PSScriptRoot\backup\$name | Out-Null #Creation du dossier de la sauvegarde
     foreach($file in $tobackup){
-        Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\
-    }
-}
-if($execmode -eq 'check'){
-    If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-        Write-Host "Pas lancé en admin"
-        exit 1
+        Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\$name
     }
 }
 if($execmode -eq 'update'){
