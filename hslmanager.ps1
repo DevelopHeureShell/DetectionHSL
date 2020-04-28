@@ -126,7 +126,6 @@ if($execmode -eq 'backup'){
     if (Test-Path $PSScriptRoot\backup\$name){
         Remove-Item -Recurse $PSScriptRoot\backup\$name
     }
-    & $PSScriptRoot\hslmanager.ps1 clean -nogui
     if(!(Test-Path $PSScriptRoot\backup)){
         New-Item -ItemType Directory -Path $PSScriptRoot\backup | Out-Null
     }
@@ -152,6 +151,17 @@ if($execmode -eq 'backup'){
         Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\$name
     }
 }
+if ($execmode -eq 'restore'){
+    if ($null -eq $args[1]){
+        exit 1
+    }
+    $name = $args[1]
+    if(!(Test-Path $PSScriptRoot\backup\$name)){
+        Write-Host 'Sauvegarde invalide'
+        exit 1
+    }
+}
 if($execmode -eq 'update'){
+    & $PSScriptRoot\hslmanager.ps1 backup bfrupdate
     & $PSScriptRoot\updater.ps1 -accept
 }
