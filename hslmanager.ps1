@@ -189,9 +189,10 @@ if ($execmode -eq 'restore') {
         foreach ($file in $torestore) {
             if (Test-Path $PSScriptRoot\$file) { Remove-Item -Recurse $PSScriptRoot\$file }
             Copy-Item -Recurse $PSScriptRoot\backup\$name\$file $PSScriptRoot\$file
-            Write-Host -ForegroundColor "Green" "OK!"
+          
         }
-    }
+  Write-Host -ForegroundColor "Green" "OK!"    
+}
 }
 if ($execmode -eq 'update') {
     & $PSScriptRoot\hslmanager.ps1 backup bfrupdate
