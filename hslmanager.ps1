@@ -1,5 +1,6 @@
 param (
-    [switch]$nogui = $false 
+    [switch]$nogui = $false,
+    [switch]$accpetall = $false
 )
 $hslconf = Get-Content $PSScriptRoot\config.json | ConvertFrom-Json #On load la config
 if(!($nogui)){
@@ -144,7 +145,8 @@ if($execmode -eq 'backup'){
         "main",
         "README.md", 
         "LICENSE",
-        "loupe.ico"
+        "loupe.ico",
+        'hslmanager.ps1'
     )
     New-Item -ItemType Directory -Path $PSScriptRoot\backup\$name | Out-Null #Creation du dossier de la sauvegarde
     foreach($file in $tobackup){
@@ -159,6 +161,17 @@ if ($execmode -eq 'restore'){
     if(!(Test-Path $PSScriptRoot\backup\$name)){
         Write-Host 'Sauvegarde invalide'
         exit 1
+    }
+    if (!($accpetall)){
+        while(!($choice -eq 'y')){
+            Write-Output "Etes vous sur de vouloir restaurer la sauvegarder $name ? [Y|N]"
+            $choice = Read-Host 
+            if($choice.ToLower() -eq 'n' ){
+                Write-Host 'Sortie...'
+                exit
+            }
+        }
+        
     }
 }
 if($execmode -eq 'update'){
