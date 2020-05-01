@@ -38,6 +38,9 @@ elseif ($args[0] -eq 'backup') {
 elseif ($args[0] -eq 'restore') {
     $execmode = "restore"
 }
+elseif ($args[0] -eq 'check' -or $args[0] -eq 'chk') {
+    $execmode = 'check'
+}
 else {
     Write-Output "Arguments invalides"
     $execmode = 'help'
@@ -198,4 +201,10 @@ if ($execmode -eq 'update') {
     & $PSScriptRoot\hslmanager.ps1 backup bfrupdate
     Write-Host -ForegroundColor Green "Mise a jour..."
     & $PSScriptRoot\updater.ps1 -accept
+}
+if($execmode -eq 'check'){
+    Write-Host -ForegroundColor Green "Checking..."
+    if(!($hslconf.modules[-1] -eq 'zipper') -and $hslconf.modules -contains 'zipper'){
+        Write-Host -ForegroundColor Red "Le module Zipper doit etre en derniere position"
+    }
 }
