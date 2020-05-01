@@ -1,7 +1,7 @@
 $Host.UI.RawUI.WindowTitle = "DetectionHSL Downloader"
 New-item -ItemType Directory -Path $PSScriptRoot\DetectionHSL | Out-null
 Set-Location $env:TEMP 
-if(Test-path .\hsldownloader) {
+if (Test-path .\hsldownloader) {
     Remove-item -recurse hsldownloader
 }
 New-item -ItemType Directory -Name hsldownloader | Out-Null

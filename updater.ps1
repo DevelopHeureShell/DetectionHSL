@@ -18,18 +18,18 @@ if ($new.version -eq $actual.version) {
     exit 
 }
 else {
-    if(!($accept)){
-    while(!($action -eq 'y' -or $action -eq 'n')){
-        $choice  = Read-Host 'Voulez vous mettre a jour vers la nouvelle version ? (O)ui (N)on'
-        if($choice -eq 'o'){
-            $action = 'y'
-        }
-        elseif($choice -eq 'n'){
-            $action = 'n'
-            exit
+    if (!($accept)) {
+        while (!($action -eq 'y' -or $action -eq 'n')) {
+            $choice = Read-Host 'Voulez vous mettre a jour vers la nouvelle version ? (O)ui (N)on'
+            if ($choice -eq 'o') {
+                $action = 'y'
+            }
+            elseif ($choice -eq 'n') {
+                $action = 'n'
+                exit
+            }
         }
     }
-}
     Write-Output "foo"
     exit
     $newver = $new.version.tostring()

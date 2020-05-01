@@ -71,7 +71,7 @@ write-output "//  //          ///     //"
 write-output "//  //    //////         //////"
 write-output ""
 Write-hslcat("listing.txt")
-foreach($mod in $modules){
+foreach ($mod in $modules) {
     $mod
 }
 
@@ -93,7 +93,7 @@ Set-Location $hsldir
 Petite boucle qui se charge de créer les dossiers modules.
 #>
 Write-Hslcat("directory.txt")
-foreach($mod in $modules){
+foreach ($mod in $modules) {
     New-Item -ItemType Directory -Name $mod | Out-Null
 }
 Set-Location $modulesdir 
@@ -103,12 +103,12 @@ Ready to LOG!
 On va récup le STDOUT pour le début du LOG
 #> 
 if (Test-Path .\hsllog.log) { Remove-Item .\hsllog.log }
-foreach($mod in $modules){
+foreach ($mod in $modules) {
     $mod >> hsllog.log
 }
 $logpath = Get-Location
 #Lancement des modules
-foreach($mod in $modules) {
+foreach ($mod in $modules) {
     $hslmod = Get-Content $modulesdir\$mod\module.json | ConvertFrom-Json
     & $maindir\modulelaunch.exe $hslmod.name $hslmod.author $hslmod.version
     Start-HSLmod($mod)

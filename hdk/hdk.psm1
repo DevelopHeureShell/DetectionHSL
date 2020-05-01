@@ -17,7 +17,7 @@ function New-Hslmod {
   if ($name -eq "") { break }
   if ((Test-path .\scripts ) -eq $true) { Set-Location .\scripts }
   else { Write-Output "Veuillez vous rendre dans le dossier racine" ; break }
-  if(Test-Path .\$name){Write-Output "Ce module existe deja" ; Set-Location .. ; break}
+  if (Test-Path .\$name) { Write-Output "Ce module existe deja" ; Set-Location .. ; break }
   New-Item -ItemType Directory -Name $name | Out-Null
   Set-Location $name | Out-Null
   New-Item -ItemType Directory -Name debug | Out-Null
