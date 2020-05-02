@@ -1,2 +1,0 @@
-Début de la vérification SFC: System File checker qui va vérifier 
-les fichiers système.

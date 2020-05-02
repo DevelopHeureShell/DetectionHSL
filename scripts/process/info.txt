@@ -1,1 +1,0 @@
-Ce mondule à pour but de détecter les informations concernant les logiciels installés sur votre ordinateur.
