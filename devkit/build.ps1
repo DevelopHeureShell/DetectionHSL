@@ -28,3 +28,10 @@ if(Test-Path $maindir\cat.exe){Remove-Item $maindir\cat.exe}
 cargo build --release #Build cat-rust
 Copy-Item .\target\release\cat.exe $maindir
 Write-Host ""
+Write-Host -ForegroundColor Green "Building Modulelaunch"
+Set-Location $maindir\modulelaunch 
+if(Test-Path $maindir\modulelaunch.exe){Remove-Item -Recurse $maindir\modulelaunch.exe}
+cargo build --release 
+Copy-Item .\target\release\modulelaunch.exe $maindir
+Write-Host ""
+Set-Location $PSScriptRoot
