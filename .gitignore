@@ -1,0 +1,3 @@
+#Build
+main/cat-rust/target/*
+main/cat-rust/Cargo.lock
