@@ -27,4 +27,4 @@ Set-Location $maindir\cat-rust
 if(Test-Path $maindir\cat.exe){Remove-Item $maindir\cat.exe}
 cargo build --release #Build cat-rust
 Copy-Item .\target\release\cat.exe $maindir
-Write-Host 
+Write-Host ""
