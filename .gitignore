@@ -3,3 +3,7 @@ main/cat-rust/target/*
 main/cat-rust/Cargo.lock
 devkit/rustup-init.exe
 devkit/install.log
+main/modulelaunch/target/*
+main/modulelaunch/Cargo.lock
+#logs || Build
+detectionshsl.log 
