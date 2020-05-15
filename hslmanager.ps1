@@ -91,12 +91,7 @@ if ($execmode -eq 'start') {
     exit
 }
 if ($execmode -eq 'clean') {
-    $files = @(
-        "hsllog.log",
-        "oldconfig.json",
-        "DetectionHSL.zip",
-        "backup"
-    )
+    $files = @()
     foreach ($file in $files) {
         if (Test-Path $PSScriptRoot\$file) {
             Remove-item -Recurse $PSScriptRoot\$file
@@ -137,22 +132,7 @@ if ($execmode -eq 'backup') {
     }
 
     Set-Location $PSScriptRoot
-    $tobackup = @(
-        "HSLlogo.png",
-        ".gitignore",
-        "config.json",
-        "start.bat", 
-        "update.bat",
-        "updater.json",
-        "updater.ps1",
-        "gui.ps1",
-        "scripts", 
-        "main",
-        "README.md", 
-        "LICENSE",
-        "loupe.ico",
-        'hslmanager.ps1'
-    )
+    $tobackup = @()
     New-Item -ItemType Directory -Path $PSScriptRoot\backup\$name | Out-Null #Creation du dossier de la sauvegarde
     foreach ($file in $tobackup) {
         Copy-Item -Recurse $PSScriptRoot\$file $PSScriptRoot\backup\$name

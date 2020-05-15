@@ -33,3 +33,21 @@ if($name -eq ''){
     $hslmod | ConvertTo-Json >> module.json
 
 }
+else{ 
+$hslmod = @{
+        name = $name
+        version = $version 
+        author = $author
+        deps = @()
+    }
+    #this is the config
+    Set-Location $PSScriptRoot\..\scripts 
+    if(Test-Path $name){
+        Write-Host -ForegroundColor Red "Un module du meme nom existe deja."
+        exit  1
+    }
+    New-Item -ItemType Directory -Name $name | Out-Null
+    Set-Location $name 
+    New-Item -ItemType File -Name "${name}.ps1" | Out-null
+    $hslmod | ConvertTo-Json >> module.json
+}
