@@ -7,3 +7,6 @@ main/modulelaunch/target/*
 main/modulelaunch/Cargo.lock
 #logs || Build
 detectionshsl.log 
+#modules
+src/node_modules
+src/yarn.lock

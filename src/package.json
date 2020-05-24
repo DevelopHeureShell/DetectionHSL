@@ -1,0 +1,14 @@
+{
+  "name": "detectionhsl",
+  "version": "2.5.0",
+  "main": "index.js",
+  "repository": "https://github.com/woomy4680-exe/DetectionHSL",
+  "author": "DetectionHSl contributors",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0"
+  }
+}
