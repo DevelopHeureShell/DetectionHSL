@@ -35,13 +35,32 @@ inquirer.prompt([
             .then((mods) => {
                 const hslconf = {
                     version: `${hslcfg.version}`,
-                    modules: mods,
-                    lang: lang
+                    modules: mods.mods,
+                    lang: lang.lang
                 };
                 fs.writeFile(`../hslconf.json`, JSON.stringify(hslconf), async () => {
                     console.log(`Configuration écrite`);
                 });
             });
     }
-
+    else if (lang.lang === `en`){
+        inquirer.prompt([
+            {
+                type: `checkbox`,
+                name: `mods`,
+                message: `Wich module do you want to use?`,
+                choices: hslmods
+            }
+        ])
+            .then((mods) => {
+                const hslconf = {
+                    version: `${hslcfg.version}`,
+                    modules: mods.mods,
+                    lang: lang.lang
+                };
+                fs.writeFile(`../hslconf.json`, JSON.stringify(hslconf), async () => {
+                    console.log(`Configuration writen!`);
+                });
+            });
+    }
 }).catch(e => { console.log(e); });

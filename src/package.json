@@ -9,6 +9,7 @@
     "inquirer": "^7.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.1.0"
+    "eslint": "^7.1.0",
+    "nexe": "^3.3.2"
   }
 }
