@@ -64,7 +64,7 @@ On log la liste des modules à load.
 Clear-Host
 Write-Output "Bienvenue sur DetectionHSL!"
 write-output ""
-write-output "//  //       ///////    //"
+write-output "//  //      ////////    //"
 write-output "//  //     ////         //"
 write-output "//////      ///////     //"
 write-output "//  //          ///     //"

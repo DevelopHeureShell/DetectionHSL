@@ -30,8 +30,6 @@ else {
             }
         }
     }
-    Write-Output "foo"
-    exit
     $newver = $new.version.tostring()
     Write-Output "Updating DetectionHSL"
     $url = "https://github.com/Woomy4680-exe/DetectionHSL/archive/${newver}.zip"
