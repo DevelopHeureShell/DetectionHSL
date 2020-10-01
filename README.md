@@ -8,7 +8,7 @@ Quand la fenêtre qui vous demande les permission administrateur, mettez oui.
 ##### Pour l'aide à la conception du script powershell:
 [Emie](https://github.com/skyemie)
 ##### Pour l'aide au niveau de la conception des exécutables Rust:
-[RheyDskey](https://github.com/rheydskey) pour cat-rust qui ajoute le support des caractères spéciaux et accentués ainsi que la GUI.
+[Rheydskey](https://github.com/rheydskey) pour cat-rust qui ajoute le support des caractères spéciaux et accentués ainsi que la GUI.
 #####  Pour leur suggestions intéressantes:
 [Nexus/Noa](https://github.com/nexusdeveloppement)
 
