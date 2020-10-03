@@ -4,7 +4,11 @@ DetectionHSL est un script écrit en [PowerShell](https://github.com/powershell/
 [RheydSkey 🍪](https://github.com/Rheydskey)
 [DevelopHeureShell](https://github.com/DevelopHeureShell)
 [SkyEmie_](https://github.com/SkyEmie)
+[Kiki79250CoC](https://twitter.com/Kiki79250CoC)
+
 ### Discuter
 Une question? Juste envie de discuter du projet? Envie de faire des suggestions? Un problème? Voici les endroits ou vous pouvez passer:
 [Issues GitHub (report de bug)](https://github.com/DetectionHSL/DetectionHSL/issues)
 [Telegram Tapladiscut](https://t.me/woomy4680)
+[Discord TechLambda](https://discord.gg/ARQGTS9)
+[Discord Atelier Des projets](https://discord.gg/wNcrRpD)
