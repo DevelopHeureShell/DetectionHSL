@@ -10,8 +10,8 @@ Set-Location "${PSScriptRoot}\..";
 $ROOT = Get-Location;
 Write-Host -ForegroundColor Yellow "Building HSL10N";
 Set-Location "${ROOT}/core/hsl10n";
-cargo build --release; 
-New-Item -ItemType Directory -Path "${ROOT}/bin"
+cargo build --release;
+if(!(Test-Path "${ROOT}/bin")) { New-Item -ItemType Directory -Path "${ROOT}/bin" }
 Copy-Item "${PWD}/target/release/hsl10n.exe" "${ROOT}/bin/";
 Write-Host -ForegroundColor Green "Done!";
 Set-Location $PSScriptRoot;
