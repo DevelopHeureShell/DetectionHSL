@@ -11,8 +11,7 @@ $ROOT = Get-Location;
 Write-Host -ForegroundColor Yellow "Building HSL10N";
 Set-Location "${ROOT}/core/hsl10n";
 cargo build --release; 
-Remove-Item "${PWD}/target/release/hsl10n.d";
 New-Item -ItemType Directory -Path "${ROOT}/bin"
-Copy-Item "${PWD}/target/release/hsl10n*" "${ROOT}/bin/";
+Copy-Item "${PWD}/target/release/hsl10n.exe" "${ROOT}/bin/";
 Write-Host -ForegroundColor Green "Done!";
 Set-Location $PSScriptRoot;
