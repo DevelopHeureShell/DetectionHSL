@@ -8,8 +8,7 @@ function Get-LangMessage {
     if(!(Test-Path $filepath)) {
         $filepath = "${PSScriptRoot}/../l10n/${modname}/en.yaml"
     }
-    if($IsWindows -and (Test-path "${PSScriptroot}\..\..\")){
-        Write-Host "Coucuou"
+    if((Test-path "${PSScriptroot}\..\..\")){
         & "${PSScriptRoot}\..\..\bin\hsl10n.exe" --file $filepath --msg $msg;
     }
 }
