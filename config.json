@@ -1,4 +1,7 @@
 {
+    "config": {
+        "lang": "fr"
+    },
     "version": {
         "minor": "0",
         "major": "3",
