@@ -11,8 +11,5 @@ Quand la fenêtre qui vous demande les permission administrateur, mettez oui.
 [Rheydskey](https://github.com/rheydskey) pour cat-rust qui ajoute le support des caractères spéciaux et accentués ainsi que la GUI.
 #####  Pour leur suggestions intéressantes:
 [Nexus/Noa](https://github.com/nexusdeveloppement)
-
-[DevelopHeureShell](https://github.com/developheureshell)
-
 ##### Divers:
 [Wabys](https://www.youtube.com/channel/UCHvyBugF-BBqH3P2EBn6c3w) Pour m'avoir fourni un crashdump bien utile
