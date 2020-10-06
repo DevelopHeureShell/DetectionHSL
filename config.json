@@ -3,9 +3,9 @@
         "lang": "fr"
     },
     "version": {
-        "minor": "0",
-        "major": "3",
-        "patch": "0",
-        "type": "beta"
+        "minor": 0,
+        "major": 3,
+        "patch": 0,
+        "reltype": "beta"
     }
 }
