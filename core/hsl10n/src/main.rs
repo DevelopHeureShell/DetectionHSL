@@ -1,3 +1,5 @@
+#[macro_use]
+extern crate hslshared;
 use std::path::{
     Path
 };
@@ -15,7 +17,6 @@ struct Opt {
 }
 
 fn main() {
-    
     let opt = Opt::from_args();
     let file = format!("{}", opt.file[0]);
     if !Path::new(&file).exists() {
@@ -24,6 +25,11 @@ fn main() {
     }
     if opt.file[0] == "" || opt.msg[0] == "" {
         std::process::exit(1);
+    }
+    if hslshared::utils::is_debug_env() {
+
+        yellow_print!(format!("[DEBUG] HSL10N: Priting langage string {}", opt.msg[0]));
+        
     }
     lib::yaml::get_lang_message(file, &opt.msg[0]);
 }
