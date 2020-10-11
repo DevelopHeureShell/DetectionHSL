@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+Import-Module "./lib/libbuild.psm1"
 Write-Host -ForegroundColor Yellow "Building DetectioHSL...";
 Write-Host -ForegroundColor Blue "Checking Deps...";
 if(!(Test-path "$HOME/.cargo")) {
@@ -6,12 +7,13 @@ if(!(Test-path "$HOME/.cargo")) {
     exit 1;
 }
 Write-Host -ForegroundColor Green "Dependencies OK!";
-Set-Location "${PSScriptRoot}\..";
-$ROOT = Get-Location;
-Write-Host -ForegroundColor Yellow "Building HSL10N";
-Set-Location "${ROOT}/core/hsl10n";
-cargo build --release;
-if(!(Test-Path "${ROOT}/bin")) { New-Item -ItemType Directory -Path "${ROOT}/bin" }
-Copy-Item "${PWD}/target/release/hsl10n.exe" "${ROOT}/bin/";
+$packs = @(
+    "hsl10n",
+    "hslconfig",
+    "hsldeps"
+)
+foreach($pack in $packs) {
+    Invoke-CargoPackageBuild -Name $pack
+}
 Write-Host -ForegroundColor Green "Done!";
 Set-Location $PSScriptRoot;
