@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-Import-Module "lib/libbuild.psm1"
+Import-Module "${PSScriptRoot}\lib\libbuild.psm1"
 Write-Host -ForegroundColor Yellow "Building DetectioHSL...";
 Write-Host -ForegroundColor Blue "Checking Deps...";
 if(!(Test-path "$HOME/.cargo")) {
