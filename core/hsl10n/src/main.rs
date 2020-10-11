@@ -1,8 +1,6 @@
 #[macro_use]
 extern crate hslshared;
-use std::path::{
-    Path
-};
+use std::path::Path;
 
 use structopt::StructOpt;
 mod lib;
@@ -13,7 +11,7 @@ struct Opt {
     #[structopt(short, long)]
     file: Vec<String>,
     #[structopt(short, long)]
-    msg: Vec<String>
+    msg: Vec<String>,
 }
 
 fn main() {
@@ -27,8 +25,10 @@ fn main() {
         std::process::exit(1);
     }
     if hslshared::utils::is_debug_env() {
-        yellow_print!(format!("[DEBUG] HSL10N: Priting langage string {}", opt.msg[0]));
-        
+        yellow_print!(format!(
+            "[DEBUG] HSL10N: Priting langage string {}",
+            opt.msg[0]
+        ));
     }
     lib::yaml::get_lang_message(file, &opt.msg[0]);
 }

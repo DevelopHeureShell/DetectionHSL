@@ -7,9 +7,7 @@ pub fn is_debug_env() -> bool {
             } else {
                 false
             }
-        },
-        _ => {
-            false
         }
+        _ => false,
     };
 }

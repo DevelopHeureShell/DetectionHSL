@@ -1,7 +1,2 @@
 pub mod functions;
-pub use functions::{
-    term,
-    utils,
-    structs,
-    fsutils
-};
+pub use functions::{fsutils, structs, term, utils};

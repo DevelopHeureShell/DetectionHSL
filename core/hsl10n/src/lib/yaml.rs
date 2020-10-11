@@ -9,8 +9,6 @@ pub fn get_lang_message(jpath: String, msgname: &str) {
                 println!("{}", d)
             }
         }
-        Err(e) => {
-            println!("Erreur: {:?}", e)
-        }
+        Err(e) => println!("Erreur: {:?}", e),
     };
-}    
+}
