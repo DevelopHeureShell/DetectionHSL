@@ -2,7 +2,7 @@ use hslshared::structs;
 extern crate yaml_rust;
 use yaml_rust::YamlLoader;
 pub fn from_yaml(yamlstr: String) -> structs::Config {
-    let docs = &YamlLoader::load_from_str(&yamlstr).unwrap()[0]; 
+    let docs = &YamlLoader::load_from_str(&yamlstr).unwrap()[0];
     structs::Config {
         version: structs::VerInfo {
             reltype: docs["version"]["reltype"].as_str().unwrap().to_owned(),
@@ -12,6 +12,6 @@ pub fn from_yaml(yamlstr: String) -> structs::Config {
         },
         config: structs::BaseConfig {
             lang: docs["config"]["lang"].as_str().unwrap().to_owned(),
-        }
+        },
     }
 }
