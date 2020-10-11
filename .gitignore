@@ -2,3 +2,5 @@ mnt/
 core/hsl10n/target
 core/hsl*/target
 */.idea/*
+core/shared/target
+.VSCodeCounter/*

@@ -27,7 +27,6 @@ fn main() {
         std::process::exit(1);
     }
     if hslshared::utils::is_debug_env() {
-
         yellow_print!(format!("[DEBUG] HSL10N: Priting langage string {}", opt.msg[0]));
         
     }
