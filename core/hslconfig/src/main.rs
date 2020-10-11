@@ -1,6 +1,5 @@
 use hslshared;
 use std::env;
-mod lib;
 
 fn main() {
     println!("Hello, HSLWorld");
