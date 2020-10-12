@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+$BASELOC = Get-Location
 Import-Module "${PSScriptRoot}\lib\libbuild.psm1"
 Write-Host -ForegroundColor Yellow "Building DetectioHSL...";
 Write-Host -ForegroundColor Blue "Checking Deps...";
@@ -17,3 +18,4 @@ foreach($pack in $packs) {
 }
 Write-Host -ForegroundColor Green "Done!";
 Set-Location $PSScriptRoot;
+Set-Location $BASELOC.Path

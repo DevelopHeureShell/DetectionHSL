@@ -9,6 +9,9 @@ function Invoke-CargoPackageBuild {
     Set-Location "${ROOT}/core/$name";
     cargo build --release;
     if (!(Test-Path "${ROOT}/bin")) { New-Item -ItemType Directory -Path "${ROOT}/bin" }
-    Copy-Item "${PWD}/target/release/*.exe" "${ROOT}/bin/";
-
+    if($IsLinux) {
+        Copy-Item "${PWD}/target/release/${name}" "${ROOT}/bin/";
+    } else {
+        Copy-Item "${PWD}/target/release/${name}.exe" "${ROOT}/bin/";
+    }
 }
