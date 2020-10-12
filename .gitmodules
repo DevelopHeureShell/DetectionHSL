@@ -1,0 +1,6 @@
+[submodule "core/hslconfig"]
+	path = core/hslconfig
+	url = https://github.com/DetectionHSL/hslconfig.git
+[submodule "core/hsl10n"]
+	path = core/hsl10n
+	url = https://github.com/DetectionHSL/hsl10n.git
