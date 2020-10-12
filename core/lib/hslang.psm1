@@ -9,7 +9,11 @@ function Get-LangMessage {
         $filepath = "${PSScriptRoot}/../l10n/${modname}/en.yaml"
     }
     if((Test-path "${PSScriptroot}\..\..\")){
-        & "${PSScriptRoot}\..\..\bin\hsl10n.exe" --file $filepath --msg $msg;
+        $exename = "hsl10n"
+        if(Test-Path "C:\Windows\System32") {
+            $exename = "${exename}.exe"
+        }
+        & "${PSScriptRoot}\..\..\bin\${exename}" --file $filepath --msg $msg;
     }
 }
 Export-ModuleMember Get-LangMessage;
