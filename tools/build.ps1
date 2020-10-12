@@ -10,8 +10,7 @@ if(!(Test-path "$HOME/.cargo")) {
 Write-Host -ForegroundColor Green "Dependencies OK!";
 $packs = @(
     "hsl10n",
-    "hslconfig",
-    "hsldeps"
+    "hslconfig"
 )
 foreach($pack in $packs) {
     Invoke-CargoPackageBuild -Name $pack
